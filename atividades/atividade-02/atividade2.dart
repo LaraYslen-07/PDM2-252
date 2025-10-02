@@ -1,4 +1,4 @@
-
+// Agregação e Composição
 import 'dart:convert';
 
 class Dependente {
@@ -32,11 +32,11 @@ class Funcionario {
   }
 }
 
-class Equipe {
+class EquipeProjeto {
   late String _nomeProjeto;
   late List<Funcionario> _funcionarios;
 
-  Equipe(String nomeprojeto, List<Funcionario> funcionarios) {
+  EquipeProjeto(String nomeprojeto, List<Funcionario> funcionarios) {
     _nomeProjeto = nomeprojeto;
     _funcionarios = funcionarios;
   }
@@ -51,18 +51,18 @@ class Equipe {
 
 void main() {
 
-  var dep1 = Dependente('Anderson');
-  var dep2 = Dependente('Taveira');
-  var dep3 = Dependente('Alyne');
-  var dep4 = Dependente('Pedro');
+  var dep1 = Dependente('Ana');
+  var dep2 = Dependente('Carlos');
+  var dep3 = Dependente('Beatriz');
+  var dep4 = Dependente('Daniel');
 
-  var func1 = Funcionario('Lara', [dep1, dep2]);
-  var func2 = Funcionario('Layhanna', [dep3]);
-  var func3 = Funcionario('Odílio', [dep4]);
+  var func1 = Funcionario('João', [dep1, dep2]);
+  var func2 = Funcionario('Maria', [dep3]);
+  var func3 = Funcionario('Pedro', [dep4]);
 
   var funcionarios = [func1, func2, func3];
 
-  var equipe = Equipe('Trabalho da equipe de PDM-2', funcionarios);
+  var equipe = EquipeProjeto('Projeto Dart', funcionarios);
   
   print(jsonEncode(equipe.toJson()));
 }
